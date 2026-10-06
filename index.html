@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan David Alderete Cardona | Desarrollador de Software</title>
+<meta name="description" content="Hoja de vida de Juan David Alderete Cardona: desarrollador de software y estudiante de Ingeniería en Informática en Manizales, Colombia.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<canvas id="matrix" aria-hidden="true"></canvas>
+
+<header class="bar no-print">
+  <span class="brand">&gt;_ JDAC</span>
+  <nav>
+    <a href="#perfil">Perfil</a><a href="#experiencia">Experiencia</a><a href="#educacion">Educación</a><a href="#proyectos">Proyectos</a><a href="#habilidades">Habilidades</a>
+  </nav>
+  <div class="tools">
+    <button id="bg" type="button">Fondo: Matrix</button>
+    <button id="ats" type="button">Modo ATS</button>
+    <button id="pdf" type="button">Descargar PDF</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Juan David Alderete Cardona</h1>
+    <p class="role"><span id="typed">Desarrollador de software · Estudiante de Ingeniería en Informática</span><span class="cursor">_</span></p>
+    <p class="contact">Manizales, Colombia · [correo@ejemplo.com] · [+57 300 000 0000] · [github.com/tu-usuario] · [linkedin.com/in/tu-usuario]</p>
+  </section>
+
+  <section id="perfil">
+    <h2>Perfil profesional</h2>
+    <p>Desarrollador de software autodidacta que combina la experiencia en gestión de cartera del sector de iluminación con el desarrollo de plataformas B2B de pedidos, cotización y gestión, desplegadas en Netlify. Estudiante de Ingeniería en Informática en la Universidad de Caldas. [Agrega aquí una frase con tu objetivo profesional.]</p>
+  </section>
+
+  <section id="experiencia">
+    <h2>Experiencia laboral</h2>
+    <article>
+      <h3>Auxiliar de cartera — SOLED S.A.S. (Soluciones Solares y LED)</h3>
+      <p class="meta">Manizales, Colombia · [Mes Año] – Actualidad</p>
+      <ul>
+        <li>Gestión y seguimiento de la cartera de clientes del sector de iluminación. [Añade cifras: número de clientes, % de recaudo, reducción de mora.]</li>
+        <li>Desarrollo de un sistema propio de toma de pedidos y cotizaciones que digitalizó el proceso comercial de la empresa.</li>
+        <li>[Añade un logro medible más: tiempo ahorrado, errores reducidos, procesos mejorados.]</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="educacion">
+    <h2>Educación</h2>
+    <article>
+      <h3>Ingeniería en Informática — Universidad de Caldas</h3>
+      <p class="meta">Manizales, Colombia · En curso (inicio 2026)</p>
+    </article>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="chips no-print">
+      <button class="chip on" data-f="all" type="button">Todos</button>
+      <button class="chip" data-f="b2b" type="button">B2B</button>
+      <button class="chip" data-f="python" type="button">Python</button>
+      <button class="chip" data-f="3d" type="button">Modelado 3D</button>
+    </div>
+    <div class="grid">
+      <article class="card" data-tags="b2b web">
+        <h3>Plataforma de pedidos y cotizaciones</h3>
+        <p class="meta">SOLED S.A.S. · TOOL UNIT S.A.S.</p>
+        <p>Sistema que digitalizó la toma de pedidos y la generación de cotizaciones; replicado para un segundo cliente.</p>
+        <p class="stack">HTML · CSS · JavaScript · Google Apps Script · Google Sheets · Netlify</p>
+      </article>
+      <article class="card" data-tags="b2b web">
+        <h3>MotoTaller</h3>
+        <p class="meta">Aplicación multi-tenant</p>
+        <p>Gestión de talleres de motos: inventario y mantenimientos por placa.</p>
+        <p class="stack">Next.js · TypeScript · Tailwind CSS · Supabase · Netlify</p>
+      </article>
+      <article class="card" data-tags="b2b web">
+        <h3>RestoApp</h3>
+        <p class="meta">Plataforma multi-restaurante</p>
+        <p>Plataforma de pedidos para varios restaurantes, construida sobre la arquitectura de MotoTaller.</p>
+        <p class="stack">Next.js · TypeScript · Supabase · Netlify</p>
+      </article>
+      <article class="card" data-tags="python">
+        <h3>[Nombre de tu proyecto en Python]</h3>
+        <p class="meta">[Contexto o cliente]</p>
+        <p>[Qué problema resuelve y qué resultado logró.]</p>
+        <p class="stack">Python · [librerías]</p>
+      </article>
+      <article class="card" data-tags="3d">
+        <h3>[Nombre de tu proyecto de modelado 3D]</h3>
+        <p class="meta">[Contexto o cliente]</p>
+        <p>[Qué modelaste y para qué se usó.]</p>
+        <p class="stack">[Software de modelado]</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <ul>
+      <li><strong>Desarrollo web:</strong> HTML, CSS, JavaScript, TypeScript, Next.js, Tailwind CSS</li>
+      <li><strong>Datos y backend:</strong> Python, Supabase, Google Apps Script, Google Sheets</li>
+      <li><strong>Despliegue y control de versiones:</strong> Netlify, Git, GitHub</li>
+      <li><strong>Modelado 3D:</strong> [software]</li>
+      <li><strong>Negocio:</strong> gestión de cartera, cotizaciones, facturación</li>
+      <li><strong>Idiomas:</strong> Español (nativo), Inglés [nivel]</li>
+    </ul>
+  </section>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
