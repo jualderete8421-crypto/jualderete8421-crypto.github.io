@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Hoja de vida web · estilos
+   Orden del archivo: 1 base · 2 barra superior · 3 formato Visual
+                      4 formato ATS · 5 pantallas pequeñas · 6 impresión (PDF)
+   ========================================================================== */
+
+/* ---------- 1. Base ---------- */
+
+:root {
+  --ink: #10222B;          /* azul petróleo muy oscuro: barra lateral y títulos */
+  --teal: #0F766E;         /* acento principal sobre fondo claro */
+  --marigold: #F2A93B;     /* único acento cálido: línea de tiempo, foto y formato activo */
+  --paper: #FFFFFF;
+  --page: #E4EBE9;         /* fondo de la página detrás de la hoja */
+  --mist: #D6E0DD;         /* líneas divisorias */
+  --tint: #E5F2F0;        /* fondo de las etiquetas de tecnología */
+  --text: #1E2D33;
+  --muted: #55676D;
+  --on-ink: #EAF1EF;
+  --on-ink-muted: #A9BDBA;
+
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-ats: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+  --sheet-shadow: 0 1px 2px rgba(16, 34, 43, .08), 0 14px 34px -14px rgba(16, 34, 43, .28);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+.skip {
+  position: absolute; left: -999px; top: 0; z-index: 50;
+  background: #fff; color: var(--ink); padding: .6rem 1rem;
+  font-family: var(--font-display); font-weight: 600;
+}
+.skip:focus { left: .5rem; top: .5rem; }
+
+.noscript { padding: 2rem 1rem; text-align: center; }
+
+.cv { max-width: 1100px; margin: 1.5rem auto 3rem; }
+.cv:focus { outline: none; }
+
+/* ---------- 2. Barra superior ---------- */
+
+.toolbar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--ink); color: var(--on-ink);
+}
+.toolbar__inner {
+  max-width: 1100px; margin: 0 auto; padding: .6rem 1rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.toolbar__title {
+  margin-right: auto;
+  font: 700 1.05rem var(--font-display); letter-spacing: -.01em;
+}
+.toolbar :focus-visible, .vis__rail :focus-visible { outline-color: var(--marigold); }
+
+.switch {
+  display: inline-flex; padding: 3px; border-radius: 999px;
+  background: rgba(255, 255, 255, .1);
+}
+.switch__btn {
+  min-height: 40px; padding: 0 1.1rem; border: 0; border-radius: 999px;
+  background: none; color: var(--on-ink); cursor: pointer;
+  font: 600 .92rem var(--font-display);
+  transition: background-color .2s, color .2s;
+}
+.switch__btn[aria-pressed="true"] { background: var(--marigold); color: var(--ink); }
+.switch__btn:not([aria-pressed="true"]):hover { background: rgba(255, 255, 255, .12); }
+
+.btn-pdf {
+  min-height: 40px; padding: 0 1rem; border: 0; border-radius: 8px;
+  background: #fff; color: var(--ink); cursor: pointer;
+  font: 700 .92rem var(--font-display);
+  transition: background-color .2s;
+}
+.btn-pdf:hover { background: var(--marigold); }
+
+/* ---------- 3. Formato Visual ---------- */
+
+.vis {
+  display: flex;
+  background: var(--paper);
+  box-shadow: var(--sheet-shadow);
+}
+
+/* Columna izquierda oscura */
+.vis__rail {
+  flex: 0 0 clamp(270px, 31%, 340px);
+  padding: 2.75rem 1.75rem 3rem;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-family: var(--font-display);
+}
+.rail-block + .rail-block { margin-top: 2.1rem; }
+.rail-block h2 {
+  margin-bottom: .85rem; padding-bottom: .5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+  color: #fff; font: 700 1.1rem/1.2 var(--font-display);
+}
+
+.contact { list-style: none; padding: 0; display: grid; gap: .6rem; font-weight: 500; font-size: .95rem; line-height: 1.35; }
+.contact li { overflow-wrap: anywhere; }
+.contact a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .4); text-underline-offset: 3px; }
+.contact a:hover { text-decoration-color: var(--marigold); }
+
+.skill-group + .skill-group { margin-top: 1.1rem; }
+.skill-group h3 { margin-bottom: .45rem; color: var(--on-ink-muted); font: 600 .88rem var(--font-display); }
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li {
+  padding: .18rem .6rem; border: 1px solid rgba(255, 255, 255, .28); border-radius: 6px;
+  font-weight: 500; font-size: .84rem; line-height: 1.4;
+}
+
+.plain { list-style: none; padding: 0; display: grid; gap: .55rem; font-size: .95rem; line-height: 1.35; }
+.plain li { display: flex; justify-content: space-between; gap: 1rem; }
+.plain strong { font-weight: 600; }
+.plain span { color: var(--on-ink-muted); text-align: right; }
+.plain--stack li { display: block; }
+.plain--stack span { display: block; text-align: left; font-size: .86rem; margin-top: .1rem; }
+
+/* Columna derecha */
+.vis__col { flex: 1; min-width: 0; }
+
+.hero {
+  display: flex; align-items: center; gap: 1.6rem;
+  padding: 2.75rem 2.5rem 1.25rem;
+}
+.avatar {
+  flex: none; width: 118px; height: 118px; border-radius: 50%;
+  display: grid; place-items: center; object-fit: cover;
+  background: var(--ink); color: #fff;
+  font: 800 2.3rem var(--font-display); letter-spacing: -.02em;
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 7px var(--marigold);
+}
+.hero h1 {
+  color: var(--ink);
+  font: 800 clamp(2.3rem, 1.1rem + 3.4vw, 3.7rem)/.98 var(--font-display);
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+.hero h1 span { display: block; }
+.hero__role { margin-top: .7rem; color: var(--teal); font: 600 1.3rem/1.2 var(--font-display); }
+
+.vis__main { padding: .75rem 2.5rem 3.25rem; }
+.sec { margin-top: 2.4rem; }
+.sec > h2 {
+  margin-bottom: 1.1rem; color: var(--ink);
+  font: 700 1.55rem/1.15 var(--font-display); letter-spacing: -.015em;
+}
+.lead { max-width: 66ch; font-size: 1.12rem; line-height: 1.7; }
+
+/* Línea de tiempo */
+.timeline { position: relative; list-style: none; padding: 0 0 0 1.75rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 5px; top: .55rem; bottom: .55rem; width: 2px;
+  background: var(--mist);
+  transform: scaleY(0); transform-origin: top;
+}
+.timeline.in::before { transform: scaleY(1); transition: transform 1.1s cubic-bezier(.3, .7, .2, 1); }
+
+.job { position: relative; padding-bottom: 1.9rem; }
+.job:last-child { padding-bottom: 0; }
+.job::before {
+  content: ""; position: absolute; left: -1.75rem; top: .45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--marigold);
+}
+.job--current::before { background: var(--marigold); box-shadow: 0 0 0 4px rgba(242, 169, 59, .28); }
+
+.job__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .1rem 1rem; }
+.job h3 { color: var(--ink); font: 700 1.2rem/1.3 var(--font-display); }
+.job__dates { color: var(--muted); font: 500 .92rem var(--font-display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.job__org { margin: .1rem 0 .65rem; color: var(--teal); font: 600 1rem var(--font-display); }
+.job ul { padding-left: 1.15rem; }
+.job li { margin: .35rem 0; max-width: 68ch; }
+.job li::marker { color: var(--marigold); }
+
+/* Proyectos */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.1rem; }
+.filter {
+  min-height: 40px; padding: 0 1rem; border: 1px solid var(--mist); border-radius: 999px;
+  background: #fff; color: var(--ink); cursor: pointer;
+  font: 600 .88rem var(--font-display);
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.filter:hover { border-color: var(--ink); }
+.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.projects { list-style: none; padding: 0; border-top: 1px solid var(--mist); }
+.project { display: grid; gap: .3rem; padding: 1.1rem 0; border-bottom: 1px solid var(--mist); }
+.project.is-filtered-out { display: none; }
+.project h3 { color: var(--ink); font: 700 1.1rem/1.3 var(--font-display); }
+.project__url { justify-self: start; color: var(--teal); font: 500 .88rem var(--font-display); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.project p { max-width: 68ch; }
+.tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .35rem; }
+.tags li { padding: .12rem .55rem; border-radius: 4px; background: var(--tint); color: #0B5B55; font: 600 .8rem var(--font-display); }
+
+/* Educación */
+.edu + .edu { margin-top: 1rem; }
+.edu h3 { color: var(--ink); font: 700 1.15rem/1.3 var(--font-display); }
+.edu__org { color: var(--teal); font: 600 1rem var(--font-display); }
+.edu__dates { color: var(--muted); font: 500 .92rem var(--font-display); }
+
+/* ---------- 4. Formato ATS ---------- */
+
+html[data-mode="ats"] .cv { max-width: 860px; }
+
+.ats {
+  padding: 2.75rem 3.25rem 3.25rem;
+  background: #fff; color: #111;
+  font: 400 1rem/1.5 var(--font-ats);
+  box-shadow: var(--sheet-shadow);
+}
+.ats h1 { font: 700 2rem/1.15 var(--font-ats); }
+.ats__role { margin-top: .15rem; font-size: 1.15rem; font-weight: 700; }
+.ats__contact { margin-top: .5rem; font-size: .95rem; overflow-wrap: anywhere; }
+.ats a { color: #111; text-decoration: underline; }
+
+.ats-section { margin-top: 1.6rem; }
+.ats h2 { margin-bottom: .6rem; padding-bottom: .2rem; border-bottom: 1.5px solid #111; font: 700 1.1rem/1.3 var(--font-ats); }
+.ats h3 { font: 700 1rem/1.35 var(--font-ats); }
+.ats p { margin: .2rem 0; }
+.ats__skills { margin: .3rem 0; }
+.ats-item + .ats-item { margin-top: 1rem; }
+.ats__meta { color: #333; }
+.ats ul { margin-top: .35rem; padding-left: 1.25rem; }
+.ats li { margin: .2rem 0; }
+
+/* ---------- 5. Pantallas pequeñas (solo en pantalla, nunca al imprimir) ---------- */
+
+@media screen and (max-width: 899px) {
+  .cv { margin: 0 0 2rem; }
+  .vis, .ats { box-shadow: none; }
+
+  /* Orden en el celular: nombre, barra lateral (contacto y habilidades), contenido */
+  .vis { flex-direction: column; }
+  .vis__col { display: contents; }
+  .hero { order: 1; }
+  .vis__rail { order: 2; flex: 0 0 auto; }
+  .vis__main { order: 3; }
+
+  .hero { flex-direction: column; align-items: flex-start; gap: 1.1rem; padding: 2rem 1.25rem 1.75rem; }
+  .avatar { width: 96px; height: 96px; font-size: 1.9rem; }
+  .vis__rail { padding: 1.9rem 1.25rem 2.25rem; }
+  .vis__main { padding: .25rem 1.25rem 2.5rem; }
+  .sec { margin-top: 2rem; }
+
+  .ats { padding: 1.75rem 1.25rem 2.25rem; }
+}
+
+@media screen and (max-width: 520px) {
+  .toolbar__title { display: none; }
+  .toolbar__inner { justify-content: space-between; padding: .5rem .75rem; }
+  .btn-pdf__long { display: none; }
+  .job__dates { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .timeline::before { transform: none; }
+}
+
+/* ---------- 6. Impresión: lo que sale en el PDF ---------- */
+
+@media print {
+  html { font-size: 10.5pt; background: #fff; }
+  /* El degradado con corte duro pinta la barra lateral en TODAS las páginas */
+  html[data-mode="visual"] {
+    background: linear-gradient(90deg, var(--ink) 0, var(--ink) 2.7in, #fff 2.7in, #fff 100%);
+  }
+  body { background: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .toolbar, .skip, .filters, .noscript { display: none !important; }
+  .cv { max-width: none; margin: 0; }
+  a { text-decoration: none; }
+
+  .vis { box-shadow: none; background: none; }
+  .vis__rail { flex: 0 0 2.7in; padding: .3in .28in .3in; }
+  .rail-block + .rail-block { margin-top: 1.3rem; }
+  .rail-block h2 { margin-bottom: .6rem; padding-bottom: .35rem; font-size: 1.02rem; }
+  .skill-group + .skill-group { margin-top: .75rem; }
+  .skill-group h3 { margin-bottom: .3rem; font-size: .82rem; }
+  .chips { gap: .3rem; }
+  .chips li { padding: .1rem .5rem; font-size: .78rem; }
+  .contact { gap: .4rem; font-size: .88rem; }
+  .plain { gap: .4rem; font-size: .88rem; }
+  .hero { padding: .3in .4in .1in; gap: 1.1rem; }
+  .avatar { width: 92px; height: 92px; font-size: 1.8rem; }
+  .hero h1 { font-size: 2.45rem; }
+  .hero__role { font-size: 1.15rem; }
+  .vis__main { padding: .05in .4in .4in; }
+  .sec { margin-top: 1.5rem; }
+  .sec > h2 { font-size: 1.3rem; }
+
+  .timeline::before { transform: none; }
+  .project.is-filtered-out { display: grid !important; }
+
+  .ats { padding: 0; box-shadow: none; }
+  .ats-section { margin-top: 1.2rem; }
+
+  /* Evita que un bloque se parta entre dos páginas */
+  .job, .project, .edu, .ats-item, .skill-group, .rail-block, .plain li { break-inside: avoid; }
+  .sec > h2, .ats h2, .rail-block h2, .job h3 { break-after: avoid; }
+}
